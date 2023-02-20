@@ -2,20 +2,13 @@ import jwt from "jsonwebtoken"
 import Usuario from "../models/usuario.js";
 
 const validar = {
-    generarJWT : (uid) => {
-        return new Promise((resolve, reject) => {
-            const payload = { uid };
-            jwt.sign(payload, process.env.CLAVESECRET, {
-                expiresIn: "4h"//4h
-            }, (err, token) => {
-                if (err) {
-                    console.log(err);
-                    reject("No se pudo generar el token")
-                } else {
-                    resolve(token)
-                }
-            })
-        })
+    generarJWT : async(uid) => {
+        const payload = { uid };
+        await jwt.sign(payload, process.env.SECRETORPRIVATEKEY, {
+            expiresIn: "4h"//4h
+        }).then((error)=>{
+            console.log(error);
+        })
     
     },
     

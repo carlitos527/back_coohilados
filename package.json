@@ -8,12 +8,10 @@
     "start": "node app.js"
   },
   "keywords": [
-    "ciencia",
-    "panela",
-    "miel"
+   "Base de datos de trabajadores"
   ],
   "type": "module",
-  "author": "JEFRY y Carlitox",
+  "author": "JEFRY y ",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
