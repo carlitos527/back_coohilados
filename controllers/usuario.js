@@ -85,7 +85,8 @@ const usuario = {
         })
     },
     usuarioGetlogin: async (req, res) => {
-        const { email, password } = req.body;
+        try {
+            const { email, password } = req.body;
         console.log(email, password);
 
 
@@ -118,6 +119,12 @@ const usuario = {
         })
 
 
+            
+        } catch (error) {
+            res.status(500).json({msg:"hable con el web master carlitox"})
+            
+        }
+        
     },
 
 }

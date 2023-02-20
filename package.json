@@ -13,7 +13,7 @@
     "miel"
   ],
   "type": "module",
-  "author": "JEFRY",
+  "author": "JEFRY y Carlitox",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
