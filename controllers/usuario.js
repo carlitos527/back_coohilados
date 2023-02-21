@@ -12,7 +12,7 @@ const usuario = {
             const { tipoPersona, nombre, tipoDocumento, documento, direccion, ciudad, contacto, telefono, email, password, rol, estado } = req.body
             const usuario = new Usuario({ tipoPersona, nombre, tipoDocumento, documento, direccion, ciudad, contacto, telefono, email, password, rol, estado })
             const salt = bcryptjs.genSaltSync(10)
-            usuario.password = bcryptjs.hashSync(password, salt) 
+            usuario.password = bcryptjs.hashSync(password, salt)
             usuario.save()
 
             res.json({ usuario });
@@ -59,7 +59,6 @@ const usuario = {
             usuario
         })
     },
-
     usuarioPutActiv: async (req, res) => {
         const { id } = req.params;
         const usuario = await Usuario.findByIdAndUpdate(id, { estado: 'Activo' });
@@ -85,25 +84,17 @@ const usuario = {
         })
     },
     usuarioGetlogin: async (req, res) => {
-        try {
-            const { email, password } = req.body;
-        console.log(email, password);
-
+        const { email, password } = req.body;
 
         const usuario = await Usuario.findOne({ email })
         if (!usuario) {
             return res.status(400).json({ msg: "Usuario / Password no son correctos" });
-
-
-
         }
-
         if (usuario.estado === 0) {
             return res.status(400).json({
-                msg: "Usuario Inactivo"
+                msg: "Usuario Inactivo"  
             })
         }
-
         const validPassword = bcryptjs.compareSync(password, usuario.password);
         if (!validPassword) {
             return res.status(400).json({
@@ -112,21 +103,15 @@ const usuario = {
         }
 
         const token = await generarJWT(usuario.id);
+        console.log("token: " + token)
 
         res.json({
             usuario,
             token
+
         })
 
-
-            
-        } catch (error) {
-            res.status(500).json({msg:"hable con el web master carlitox"})
-            
-        }
-        
     },
-
 }
 
 

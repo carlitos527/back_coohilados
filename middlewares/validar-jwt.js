@@ -2,21 +2,30 @@ import jwt from "jsonwebtoken"
 import Usuario from "../models/usuario.js";
 
 const generarJWT = (uid) => {
-    return new Promise((resolve, reject) => {
-        const payload = { uid };
-        jwt.sign(payload, process.env.SECRETORPRIVATEKEY, {
-            expiresIn: "4h"//4h
-        }, (err, token) => {
-            if (err) {
-                console.log(err);
-                reject("No se pudo generar el token")
-            } else {
-                resolve(token)
-            }
-        })
-    })
 
+    const payload = { uid };
+        const tok = jwt.sign(payload, process.env.SECRETORPRIVATEKEY, {
+            expiresIn: "4h"//4h
+        })
+        console.log("token: "+tok);
+        return tok
+
+   /*  return new Promise((resolve, reject) => {
+    
+            const payload = { uid };
+            jwt.sign(payload, process.env.CLAVESECRET, {
+                expiresIn: "4h"//4h
+            }, (err, token) => {
+                if (err) {
+                    console.log(err);
+                    reject("No se pudo generar el token")
+                } else {
+                    resolve(token)
+                }
+            }) 
+    }) */
 }
+
 
 const validarJWT = async (req, res, next) => {
     const token = req.header("x-token");
@@ -28,7 +37,7 @@ const validarJWT = async (req, res, next) => {
     }
 
     try {
-        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY)
+        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY) 
 
         let usuario = await Usuario.findById(uid);
 
@@ -45,8 +54,8 @@ const validarJWT = async (req, res, next) => {
             })
         }
 
-        req.usuario=usuario
-        
+        req.usuario = usuario
+
         /* console.log("middleware carlitos"+usuario) */
 
         next();
