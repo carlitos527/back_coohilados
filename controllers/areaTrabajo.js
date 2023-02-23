@@ -12,7 +12,7 @@ const areaTrabajo = {
     },
 
     areaGet: async (req, res) => {
-        const lugar = await AreaTrabajo.find().distinct('nombre')
+        const lugar = await AreaTrabajo.find()
         res.json({ lugar })
     },
 
