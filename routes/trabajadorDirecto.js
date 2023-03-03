@@ -10,6 +10,8 @@ const router = new Router()
 router.post('/', [
     
     validarJWT, 
+
+    
    
     check('nombre', 'nombre no puede estar vacio').not().isEmpty(),
     check('nombre', 'nombre No puede tener mas de 40 caracteres').isLength({ max: 40 }),

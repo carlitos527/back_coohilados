@@ -10,7 +10,8 @@ const router = new Router()
 router.post('/agregar', [
     validarJWT,
    
-    check("tipoPersona", "tipo persona no puede estar vacio").not().isEmpty(),
+    check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
+    check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
 
     check('nombre', 'nombre no puede estar vacio').not().isEmpty(),
     check('nombre', 'nombre No puede tener mas de 40 caracteres').isLength({ max: 40 }),
@@ -20,12 +21,6 @@ router.post('/agregar', [
 
     check('fechaNacimiento', 'Fecha de Nacimiento  no puede estar vacio ').not().isEmpty(),
     check('fechaNacimiento', 'fecha de nacimineto No puede tener mas de 12 caracteres').isLength({ max: 12 }),
-
-  
-
-
-    check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
-    check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
 
     check('email', 'El correo que ingreso no es valido').isEmail(),
     check('email').custom(helpersServicio.existeEmail),
