@@ -38,9 +38,6 @@ router.post('/agregar', [
     check('tipoContrato', 'El Tipo de contrato no puede estar vacio').not().isEmpty(),
     check('tipoContrato', 'El tipo de contrato No puede tener más de 30 caracteres').isLength({ max: 30 }),
 
-   
-    check('cargo', 'rol No puede estar vacio').not().isEmpty(),
-    check('cargo', 'El Cargo No puede tener más de 20 caracteres').isLength({ max: 20 }), 
 
     check('areaTrabajo', 'este campo debe ser mongo Id').isMongoId(),
     check('areaTrabajo','este campo es requerido').not().isEmpty(),

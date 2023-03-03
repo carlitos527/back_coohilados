@@ -23,8 +23,7 @@ router.post('/agregar',validarJWT, [
     check('fechaInicio', 'La fecha de inicio No puede tener más de 10 caracteres').isLength({ max: 10 }),
     check('fechaFin', 'la fecha final de contrato  No puede estar vacio').not().isEmpty(),
     check('fechaFin', 'La fecha final del contrato No puede tener más de 10 caracteres').isLength({ max: 10 }),
-    check('cargo', 'rol No puede estar vacio').not().isEmpty(),
-    check('cargo', 'El Cargo No puede tener más de 20 caracteres').isLength({ max: 20 }),
+    
     check('areaTrabajo', 'este campo debe ser mongo Id').isMongoId(),
     check('areaTrabajo','este campo es requerido').not().isEmpty(),
     check('areatrabajo', 'El area de trabajo No puede tener más de 20 caracteres').isLength({ max: 20 }),
