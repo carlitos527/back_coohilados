@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const TrabajadorDirectoShema = new mongoose.Schema({
 
-    tipoPersona: {
+    tipoDocumento: {
         type: String,
-        required: true,
-        default: "Natural"
+        required: true
     },
-    //Natural  Juridica
+
+
     nombre: {
         type: String,
         required: true
