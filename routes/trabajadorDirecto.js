@@ -10,9 +10,6 @@ const router = new Router()
 router.post('/', [
     
     validarJWT, 
-
-    
-   
     check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
     check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
 
@@ -26,7 +23,7 @@ router.post('/', [
     check('fechaNacimiento', 'fecha de nacimineto No puede tener mas de 12 caracteres').isLength({ max: 12 }),
 
     check('email', 'El correo que ingreso no es valido').isEmail(),
-    check('email').custom(helpersServicio.existeEmail),
+    check('email').custom(helpersTrabajador.existeEmail),
 
     check('ciudad', 'este campo debe ser mongo Id').isMongoId(),
     check('ciudad', 'este campo es requerido').not().isEmpty(),
