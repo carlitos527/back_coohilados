@@ -50,12 +50,6 @@ const AyudaTemporalSchema = new mongoose.Schema({
         required: true
         },
 
-
-    
-    cargo: {
-        type: String,
-        required: true
-    },
     areaTrabajo: {
         type: mongoose.Schema.ObjectId,
         ref: "areaTrabajo",
