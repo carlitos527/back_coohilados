@@ -57,6 +57,7 @@ const ServicioShema = new mongoose.Schema({
         maxLength: 14,
         required: true
     },
+    
     tipoContrato: {
         type: String,
         required: true

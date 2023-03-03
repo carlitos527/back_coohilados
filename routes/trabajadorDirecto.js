@@ -13,29 +13,27 @@ router.post('/', [
 
     
    
+    check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
+    check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
+
     check('nombre', 'nombre no puede estar vacio').not().isEmpty(),
     check('nombre', 'nombre No puede tener mas de 40 caracteres').isLength({ max: 40 }),
 
     check('sexo', 'sexo  no puede estar vacio ').not().isEmpty(),
-    check('sexo', 'sexo No puede tener mas de 1 caracteres').isLength({ max: 1 }), 
+    check('sexo', 'sexo No puede tener mas de 1 caracteres').isLength({ max: 1 }),
 
-    check('fechaNacimiento', 'Fecha de Nacimiento  no puede estar vacio ').not().isEmpty(), 
+    check('fechaNacimiento', 'Fecha de Nacimiento  no puede estar vacio ').not().isEmpty(),
     check('fechaNacimiento', 'fecha de nacimineto No puede tener mas de 12 caracteres').isLength({ max: 12 }),
 
-    check('lugarNacimiento', 'este campo es requerido').not().isEmpty(),
-
-
-    check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
-    check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
-
     check('email', 'El correo que ingreso no es valido').isEmail(),
-    check('email').custom(helpersTrabajador.existeEmail),
+    check('email').custom(helpersServicio.existeEmail),
 
     check('ciudad', 'este campo debe ser mongo Id').isMongoId(),
     check('ciudad', 'este campo es requerido').not().isEmpty(),
 
-    check('direccion', 'direccion No puede estar vacio').not().isEmpty(),
+ 
     check('barrio', 'Barrio No puede estar vacio').not().isEmpty(),
+    check('barrio', 'Barrio No puede tener mas de 15 caracteres').isLength({ max: 15 }),
 
     check('telefono', 'telefono No puede estar vacio').not().isEmpty(),
     check('telefono', 'telefono No puede tener mas de 10 caracteres').isLength({ max: 10 }),

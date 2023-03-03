@@ -50,10 +50,7 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         ref: "Ciudad",
         required: true
     },
-    direccion: {
-        type: String,
-        required: true
-    },
+    
 
     barrio: {
         type: String,
