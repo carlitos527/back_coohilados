@@ -63,7 +63,7 @@ router.put('/usuario/put/vacaciones/:id', [
     check('id').isMongoId(),
     check('id').custom(helpersUsuario.existeUsuarioById),
     validarCampos
-], usuario.usuarioPutVacaciones)
+], usuario.usuarioPutVacaciones) 
 
 
 router.post('/login', [
