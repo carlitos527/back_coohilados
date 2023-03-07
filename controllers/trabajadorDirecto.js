@@ -11,13 +11,11 @@ const directo = {
                 tipoPersona,
                 nombre,
                 sexo,
-                fechaNacimiento, 
-                lugarNacimiento,
+                fechaNacimiento,
                 tipoDocumento,
                 documento,
                 email,
                 ciudad,
-                direccion,
                 barrio,
                 telefono,
                 tipoContrato,
@@ -26,7 +24,6 @@ const directo = {
                 salario,
                 fechaInicio,
                 fechaFin,
-                tiempoLaborado,
                 rol,
                 estado } = req.body
 
@@ -71,12 +68,10 @@ const directo = {
                 nombre,
                 sexo,
                 fechaNacimiento,
-                lugarNacimiento,
                 tipoDocumento,
                 documento,
                 email,
                 ciudad,
-                direccion,
                 barrio,
                 telefono,
                 tipoContrato,
@@ -109,14 +104,14 @@ const directo = {
         }
     },
     trabajadorGet: async (req, res) => {
-        const trabajador2 = await Trabajador.find().populate({path:'areaTrabajo'})
+        const trabajador2 = await Trabajador.find().populate({ path: 'areaTrabajo' })
         res.json({
-            trabajador2 
+            trabajador2
         })
     },
     trabajadorGetId: async (req, res) => {
         const { id } = req.params
-        const trabajador2 = await Trabajador.findById(id) 
+        const trabajador2 = await Trabajador.findById(id)
 
         res.json({
             trabajador2
