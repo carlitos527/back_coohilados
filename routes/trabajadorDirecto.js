@@ -20,7 +20,7 @@ router.post('/', [
     check('sexo', 'sexo No puede tener mas de 1 caracteres').isLength({ max: 1 }),
 
     check('fechaNacimiento', 'Fecha de Nacimiento  no puede estar vacio ').not().isEmpty(),
-    check('fechaNacimiento', 'fecha de nacimineto No puede tener mas de 12 caracteres').isLength({ max: 12 }),
+    check('fechaNacimiento', 'fecha de nacimineto No puede tener mas de 30 caracteres').isLength({ max: 30 }),
 
     check('email', 'El correo que ingreso no es valido').isEmail(),
     check('email').custom(helpersTrabajador.existeEmail),
@@ -30,10 +30,10 @@ router.post('/', [
 
  
     check('barrio', 'Barrio No puede estar vacio').not().isEmpty(),
-    check('barrio', 'Barrio No puede tener mas de 15 caracteres').isLength({ max: 15 }),
+    check('barrio', 'Barrio No puede tener mas de 30 caracteres').isLength({ max: 30 }),
 
     check('telefono', 'telefono No puede estar vacio').not().isEmpty(),
-    check('telefono', 'telefono No puede tener mas de 10 caracteres').isLength({ max: 10 }),
+    check('telefono', 'telefono No puede tener mas de 30 caracteres').isLength({ max: 30 }),
 
     check('tipoContrato', 'El Tipo de contrato no puede estar vacio').not().isEmpty(),
     check('tipoContrato', 'El tipo de contrato No puede tener más de 30 caracteres').isLength({ max: 30 }),
@@ -41,16 +41,16 @@ router.post('/', [
 
     check('areaTrabajo', 'este campo debe ser mongo Id').isMongoId(),
     check('areaTrabajo','este campo es requerido').not().isEmpty(),
-    check('areatrabajo', 'El area de trabajo No puede tener más de 20 caracteres').isLength({ max: 20 }),
+    check('areatrabajo', 'El area de trabajo No puede tener más de 30 caracteres').isLength({ max: 30 }),
 
     check('salario', 'El salario No puede estar vacio').not().isEmpty(),
-    check('salario', 'El Salario No puede tener más de 10 caracteres').isLength({ max: 10 }),
+    check('salario', 'El Salario No puede tener más de 30 caracteres').isLength({ max: 30 }),
 
     check('fechaInicio', 'la fecha de inicio  No puede estar vacio').not().isEmpty(),
-    check('fechaInicio', 'La fecha de inicio No puede tener más de 10 caracteres').isLength({ max: 10 }),
+    check('fechaInicio', 'La fecha de inicio No puede tener más de 30 caracteres').isLength({ max: 30 }),
 
     check('fechaFin', 'la fecha final de contrato  No puede estar vacio').not().isEmpty(),
-    check('fechaFin', 'La fecha final del contrato No puede tener más de 10 caracteres').isLength({ max: 10 }),
+    check('fechaFin', 'La fecha final del contrato No puede tener más de 30 caracteres').isLength({ max: 30 }),
 
 
 
