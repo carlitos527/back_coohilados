@@ -2,7 +2,7 @@ import {Router} from 'express';
 import directo from "../controllers/trabajadorDirecto.js";
 import {check} from "express-validator";
 import { validarCampos } from "../middlewares/validar-campos.js";
-import { helpersDirecto} from '../helpers/trabajadorDirecto.js';
+import { helpersTrabajador} from '../helpers/trabajadorDirecto.js';
 import {validarJWT} from '../middlewares/validar-jwt.js'
 
 const router = new Router()
@@ -23,7 +23,7 @@ router.post('/', [
     check('fechaNacimiento', 'fecha de nacimineto No puede tener mas de 12 caracteres').isLength({ max: 12 }),
 
     check('email', 'El correo que ingreso no es valido').isEmail(),
-    check('email').custom(helpersDirecto.existeEmail),
+    check('email').custom(helpersTrabajador.existeEmail),
 
     check('ciudad', 'este campo debe ser mongo Id').isMongoId(),
     check('ciudad', 'este campo es requerido').not().isEmpty(),

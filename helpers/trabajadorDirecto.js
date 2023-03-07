@@ -22,7 +22,7 @@ const helpersTrabajador={
   },
 
   existeEmail: async (email) => {
-    const existe = await Trabajador.findOne({ email });
+    const existe = await Trabajador.findOne({ email }); 
 
     if (existe) {
       throw new Error(`El email ya está registrado`);
