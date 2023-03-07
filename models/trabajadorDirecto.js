@@ -7,7 +7,6 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         required: true
     },
 
-
     nombre: {
         type: String,
         required: true
@@ -21,11 +20,7 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         required: true
     },
 
-    lugarNacimiento: {
-        type: mongoose.Schema.ObjectId,
-        ref: "Ciudad",
-        required: true
-    },
+
 
 
     tipoDocumento: {
@@ -50,7 +45,7 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         ref: "Ciudad",
         required: true
     },
-    
+
 
     barrio: {
         type: String,
@@ -62,6 +57,7 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         maxLength: 14,
         required: true
     },
+    
     tipoContrato: {
         type: String,
         required: true
@@ -73,27 +69,36 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         maxLength: 20,
         required: true
     },
+
     salario: {
         type: Number,
         required: true
     },
+
+
     fechaInicio: {
         type: Date,
         maxLength: 14,
+
     },
+
     fechaFin: {
         type: Date,
         maxLength: 14,
+
     },
+
     tiempoLaborado: {
         type: Number,
         maxLength: 10,
         default: 0
     },
+
     rol: {
         type: String,
         default: "trabajador"
     },
+
     estado: {
         type: Number,
         default: 1
