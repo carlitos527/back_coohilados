@@ -30,18 +30,18 @@ router.post('/', [
 
  
     check('barrio', 'Barrio No puede estar vacio').not().isEmpty(),
-    check('barrio', 'Barrio No puede tener mas de 30 caracteres').isLength({ max: 30 }),
+    check('barrio', 'Barrio No puede tener mas de 50 caracteres').isLength({ max: 50 }),
 
     check('telefono', 'telefono No puede estar vacio').not().isEmpty(),
     check('telefono', 'telefono No puede tener mas de 30 caracteres').isLength({ max: 30 }),
 
     check('tipoContrato', 'El Tipo de contrato no puede estar vacio').not().isEmpty(),
-    check('tipoContrato', 'El tipo de contrato No puede tener más de 30 caracteres').isLength({ max: 30 }),
+    check('tipoContrato', 'El tipo de contrato No puede tener más de 50 caracteres').isLength({ max: 50 }),
 
 
     check('areaTrabajo', 'este campo debe ser mongo Id').isMongoId(),
     check('areaTrabajo','este campo es requerido').not().isEmpty(),
-    check('areatrabajo', 'El area de trabajo No puede tener más de 30 caracteres').isLength({ max: 30 }),
+    check('areatrabajo', 'El area de trabajo No puede tener más de 50 caracteres').isLength({ max: 50 }),
 
     check('salario', 'El salario No puede estar vacio').not().isEmpty(),
     check('salario', 'El Salario No puede tener más de 30 caracteres').isLength({ max: 30 }),

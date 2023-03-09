@@ -13,20 +13,25 @@ router.post('/agregar',validarJWT, [
     check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
     check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
     check('docuemnto').custom(helpersAyudaTemporal.existeIdenti),
+
     check('nombre', 'nombre no puede estar vacio').not().isEmpty(),
-    check('nombre', 'nombre No puede tener mas de 40 caracteres').isLength({ max: 40 }),   
+    check('nombre', 'nombre No puede tener mas de 50 caracteres').isLength({ max: 50 }),  
+
     check('sexo', 'sexo  no puede estar vacio ').not().isEmpty(),
     check('sexo', 'sexo No puede tener mas de 1 caracteres').isLength({ max: 1 }),
+
     check('fechaNacimiento', 'Fecha de Nacimiento  no puede estar vacio ').not().isEmpty(),
     check('fechaNacimiento', 'fecha de nacimineto No puede tener mas de 30 caracteres').isLength({ max: 30 }),
+
     check('fechaInicio', 'la fecha de inicio  No puede estar vacio').not().isEmpty(),
     check('fechaInicio', 'La fecha de inicio No puede tener más de 30 caracteres').isLength({ max: 30 }),
+    
     check('fechaFin', 'la fecha final de contrato  No puede estar vacio').not().isEmpty(),
     check('fechaFin', 'La fecha final del contrato No puede tener más de 30 caracteres').isLength({ max: 30 }),
     
     check('areaTrabajo', 'este campo debe ser mongo Id').isMongoId(),
     check('areaTrabajo','este campo es requerido').not().isEmpty(),
-    check('areatrabajo', 'El area de trabajo No puede tener más de 30 caracteres').isLength({ max: 30 }),
+    check('areatrabajo', 'El area de trabajo No puede tener más de 30 caracteres').isLength({ max: 50 }),
 ], temporal.temporalPost)
 
 
