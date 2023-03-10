@@ -30,6 +30,9 @@ router.post('/', [
     check('email', 'El correo que ingreso no es valido').isEmail(),
     check('email').custom(helpersUsuario.existeEmail),
 
+    check('password', 'este campo es requerido').not().isEmpty(),
+    check('password', 'Favor ingrese un numero de documento').isLength({ min: 8 }),
+
     check('rol', 'este campo es requerido').not().isEmpty(),
 
 
