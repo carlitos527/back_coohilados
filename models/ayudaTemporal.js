@@ -13,7 +13,12 @@ const AyudaTemporalSchema = new mongoose.Schema({
         unique: true,
         default: "Natural"
     },
-    //Natural  Juridica
+
+    barrio: {
+        type: String,
+        required: true
+    },
+    
     nombre: {
         type: String,
         required: true
