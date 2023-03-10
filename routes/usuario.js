@@ -9,7 +9,7 @@ const router = new Router()
 
 
 router.post('/', [
-    validarJWT,
+   
     
 
     check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
