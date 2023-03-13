@@ -27,10 +27,7 @@ const AyudaTemporalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    tipoContrato: {
-        type: String,
-        required: true
-    },
+   
     fechaNacimiento: {
         type: Date,
         required: true
