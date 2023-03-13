@@ -27,15 +27,15 @@ const AyudaTemporalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-   
+    
     fechaNacimiento: {
-        type: Date,
+        type: Date,  
         required: true
     },
     
     fechaInicio: {
         type: Date,
-        maxLength: 14,
+        maxLength: 14, 
 
     },
 
@@ -50,6 +50,11 @@ const AyudaTemporalSchema = new mongoose.Schema({
         maxLength: 10,
         default:0
     },
+    tipoContrato: {
+        type: String,
+        required: true
+    },
+
 
     salario: {
         type: Number, 

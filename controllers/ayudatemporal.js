@@ -9,18 +9,19 @@ const temporal = {
     try {
       
     const {
-      tipoDocumento,
-      documento,
-      nombre,
-      sexo,
-      fechaNacimiento,
-      fechaInicio,
-      fechaFin,
-      tipoContrato, 
-      salario,
-      cargo,
-      areaTrabajo,
-      estado } = req.body
+       tipoDocumento,
+        documento,
+        nombre,
+        sexo,
+        barrio,
+        fechaNacimiento,
+        fechaInicio,
+        fechaFin,
+        tipoContrato,
+        salario,
+        areaTrabajo,
+        rol,
+        estado} = req.body
 
     const consecutivo = await Setup.findOne();
     let conse = "";
@@ -60,14 +61,15 @@ const temporal = {
       documento,
       nombre,
       sexo,
+      barrio,
       fechaNacimiento,
       fechaInicio,
       fechaFin,
       tiempoLaborado: fecha,
       tipoContrato,
       salario,
-      cargo,
       areaTrabajo,
+      rol,
       estado
     });
 
