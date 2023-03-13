@@ -28,6 +28,9 @@ router.post('/agregar',validarJWT, [
     check('barrio', 'Barrio No puede estar vacio').not().isEmpty(),
     check('barrio', 'Barrio No puede tener mas de 50 caracteres').isLength({ max: 50 }),
 
+    check('telefono', 'telefono No puede estar vacio').not().isEmpty(),
+    check('telefono', 'telefono No puede tener mas de 30 caracteres').isLength({ max: 30 }),
+
     
     check('fechaInicio', 'la fecha de inicio  No puede estar vacio').not().isEmpty(),
     check('fechaInicio', 'La fecha de inicio No puede tener más de 30 caracteres').isLength({ max: 30 }),

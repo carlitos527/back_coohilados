@@ -18,6 +18,10 @@ const AyudaTemporalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    telefono: {
+        type: String,
+        required: true
+    },
     
     nombre: {
         type: String,
