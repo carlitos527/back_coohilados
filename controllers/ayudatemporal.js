@@ -115,7 +115,7 @@ const temporal = {
     const temporal = await areaTrabajo.find({ documento })  
       .populate("documento", ["nombre"])
 
-    console.log(documento)
+    console.log(documento) 
     res.json({
       temporal
     })
