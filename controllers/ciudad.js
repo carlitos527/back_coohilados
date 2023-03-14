@@ -2,7 +2,6 @@
 import Ciudades from '../models/ciudad.js'
 
 const infoCiudad = {
-
     ciudadPost: async (req, res) => {
         const { CodDepartamento, Departamento, CodCiudad, Ciudad } = req.body
         
@@ -12,7 +11,6 @@ const infoCiudad = {
 
         
     },
-    
     departamentoGet: async (req, res) => {
         try {
             const departamentos = await Ciudades.find().distinct('Departamento')
@@ -31,7 +29,6 @@ const infoCiudad = {
         }
 
     },
-
     ciudadDepartamento: async (req, res) => {
         const { Departamento} = req.params
         console.log("hola"+Departamento)
@@ -54,7 +51,6 @@ const infoCiudad = {
             })
         }
     },
-
     ciudadGet: async (req, res) => {
         try {
             const ciu = await Ciudades.find()
@@ -125,7 +121,6 @@ const infoCiudad = {
         })
 
     },
-    
     ciudadPut: async (req, res) => {
         const { id } = req.params;
         try {
@@ -144,7 +139,6 @@ const infoCiudad = {
         }
 
     },
-
     ciudadDelete: async (req, res) => {
         const { id } = req.params;
         try {

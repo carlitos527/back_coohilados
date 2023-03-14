@@ -8,16 +8,17 @@ import { validarJWT } from '../middlewares/validar-jwt.js'
 const router = new Router()  
 
 router.post('/',[
- 
-   
     check('Departamento', 'Este dato es requerido').not().isEmpty(),
     check('Ciudad', 'Este dato es requerido').not().isEmpty(), 
     check('Ciudad').custom(helpersCiudad.existeCiudad),
 ],infoCiudad.ciudadPost)
-
 router.get('/',infoCiudad.ciudadGet)
 router.get('/departamento/get',infoCiudad.departamentoGet)
 router.get('/ciudad/get/:Departamento',infoCiudad.ciudadDepartamento)
+router.get('/ciudades/:id',[
+    check('id','El id debe ser mongoId').isMongoId(),
+    validarCampos
+],infoCiudad.ciudadGetId)
 // router.get('/id/:id',[
 //     check('id').isMongoId(),
 //     validarCampos
