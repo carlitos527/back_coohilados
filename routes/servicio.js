@@ -16,7 +16,7 @@ router.post('/agregar', [
     check('nombre', 'nombre no puede estar vacio').not().isEmpty(),
     check('nombre', 'nombre No puede tener mas de 40 caracteres').isLength({ max: 40 }),
 
-    check('tipo', 'sexo  no puede estar vacio ').not().isEmpty(),
+    check('tipo', 'tipo de trabajador  no puede estar vacio ').not().isEmpty(),
 
     check('sexo', 'sexo  no puede estar vacio ').not().isEmpty(),
     check('sexo', 'sexo No puede tener mas de 1 caracteres').isLength({ max: 1 }),

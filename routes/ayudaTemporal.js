@@ -18,7 +18,7 @@ router.post('/agregar',validarJWT, [
     check('nombre', 'nombre no puede estar vacio').not().isEmpty(),
     check('nombre', 'nombre No puede tener mas de 50 caracteres').isLength({ max: 50 }),  
 
-    check('tipo', 'sexo  no puede estar vacio ').not().isEmpty(),
+    check('tipo', 'tipo  no puede estar vacio ').not().isEmpty(),
     
 
     check('fechaNacimiento', 'Fecha de Nacimiento  no puede estar vacio ').not().isEmpty(),
