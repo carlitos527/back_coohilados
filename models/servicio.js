@@ -87,7 +87,7 @@ const ServicioShema = new mongoose.Schema({
 
     },
 
-    fechaVaciones: {
+    fechaVacaciones: {
         type: Date,
         maxLength: 14,
 
