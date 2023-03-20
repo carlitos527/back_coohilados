@@ -15,7 +15,7 @@ const ServicioShema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    
+
     sexo: {
         type: String,
         required: true
@@ -87,16 +87,10 @@ const ServicioShema = new mongoose.Schema({
 
     },
 
-    fechaFin: {
+    fechaVaciones: {
         type: Date,
         maxLength: 14,
 
-    },
-
-    tiempoLaborado: {
-        type: Number,
-        maxLength: 10,
-        default: 0
     },
 
     rol: {

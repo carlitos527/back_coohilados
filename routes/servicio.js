@@ -51,8 +51,8 @@ router.post('/agregar', [
     check('fechaInicio', 'la fecha de inicio  No puede estar vacio').not().isEmpty(),
     check('fechaInicio', 'La fecha de inicio No puede tener más de 30 caracteres').isLength({ max: 30 }),
 
-    check('fechaFin', 'la fecha final de contrato  No puede estar vacio').not().isEmpty(),
-    check('fechaFin', 'La fecha final del contrato No puede tener más de 10 caracteres').isLength({ max: 30 }),
+    check('fechaVacaciones', 'la fecha Vacaciones del trabajador No puede estar vacio').not().isEmpty(),
+    check('fechaVacaciones', 'La fecha Vacaciones del trabajador No puede tener más de 30 caracteres').isLength({ max: 30 }),
 
 
 

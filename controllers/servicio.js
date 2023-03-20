@@ -8,7 +8,6 @@ const servicio = {
 
     try {
       const {
-        tipoPersona,
         nombre,
         tipo,
         sexo,
@@ -24,7 +23,7 @@ const servicio = {
         areaTrabajo,
         salario,
         fechaInicio,
-        fechaFin,
+        fechaVacaciones,
         rol,
         estado } = req.body
   
@@ -58,12 +57,8 @@ const servicio = {
           });
         };
 
-        let fechaI = new Date(fechaInicio);
-        let fechaF = new Date(fechaFin);
-        let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000))
-  
+        
       const trabajador = new Servicio({ 
-        tipoPersona,
         nombre,
         tipo,
         sexo,
@@ -79,8 +74,8 @@ const servicio = {
         areaTrabajo,
         salario,
         fechaInicio,
-        fechaFin,
-        tiempoLaborado: fecha,
+        fechaVacaciones,
+        
         rol,
         estado
       });

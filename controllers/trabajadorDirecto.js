@@ -8,7 +8,7 @@ const directo = {
 
         try {
             const {
-                tipoPersona,
+                
                 nombre,
                 tipo,
                 sexo,
@@ -65,7 +65,7 @@ const directo = {
 
 
             const trabajador2 = new Trabajador({
-                tipoPersona,
+                
                 nombre,
                 tipo,
                 sexo,
