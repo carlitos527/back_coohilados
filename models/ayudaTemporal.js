@@ -23,6 +23,19 @@ const AyudaTemporalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+
+    ciudad: {
+        type: mongoose.Schema.ObjectId,
+        ref: "Ciudad",
+        required: true
+    },
+    
     telefono: {
         type: Number,
         required: true
