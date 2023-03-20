@@ -31,6 +31,12 @@ router.post('/agregar',validarJWT, [
     check('barrio', 'Barrio No puede estar vacio').not().isEmpty(),
     check('barrio', 'Barrio No puede tener mas de 50 caracteres').isLength({ max: 50 }),
 
+    check('email', 'El correo que ingreso no es valido').isEmail(),
+    check('email').custom(helpersAyudaTemporal.existeEmail),
+
+    check('ciudad', 'este campo debe ser mongo Id').isMongoId(),
+    check('ciudad', 'este campo es requerido').not().isEmpty(),
+
     check('telefono', 'telefono No puede estar vacio').not().isEmpty(),
     check('telefono', 'telefono No puede tener mas de 30 caracteres').isLength({ max: 30 }),
 
