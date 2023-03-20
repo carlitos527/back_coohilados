@@ -11,6 +11,11 @@ const ServicioShema = new mongoose.Schema({
         type: String,
         required: true
     },
+    tipo: {
+        type: String,
+        required: true,
+    },
+    
     sexo: {
         type: String,
         required: true

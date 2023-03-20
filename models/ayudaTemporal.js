@@ -14,6 +14,11 @@ const AyudaTemporalSchema = new mongoose.Schema({
         default: "Natural"
     },
 
+    tipo: {
+        type: String,
+        required: true,
+    },
+
     barrio: {
         type: String,
         required: true

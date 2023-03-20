@@ -61,6 +61,7 @@ const temporal = {
       tipoDocumento,
       documento,
       nombre,
+      tipo,
       sexo,
       barrio,
       telefono,
