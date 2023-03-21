@@ -25,6 +25,7 @@ const temporal = {
         salario,
         areaTrabajo,
         rol,
+        anotacion,
         estado} = req.body
 
     const consecutivo = await Setup.findOne();
@@ -78,6 +79,7 @@ const temporal = {
       salario,
       areaTrabajo,
       rol,
+      anotacion,
       estado
     });
 

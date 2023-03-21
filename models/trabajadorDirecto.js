@@ -108,6 +108,10 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         type: Number,
         default: 1
     },
+
+    anotacion: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now

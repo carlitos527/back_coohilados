@@ -25,6 +25,7 @@ const directo = {
                 salario,
                 fechaInicio,
                 fechaFin,
+                anotacion,
                 rol,
                 estado } = req.body
 
@@ -83,6 +84,7 @@ const directo = {
                 fechaInicio,
                 fechaFin,
                 tiempoLaborado: fecha,
+                anotacion,
                 rol,
                 estado
             });

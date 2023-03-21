@@ -25,6 +25,7 @@ const servicio = {
         fechaInicio,
         fechaVacaciones,
         rol,
+        anotacion,
         estado } = req.body
   
         const consecutivo = await Setup.findOne();
@@ -75,7 +76,7 @@ const servicio = {
         salario,
         fechaInicio,
         fechaVacaciones,
-        
+        anotacion,
         rol,
         estado
       });

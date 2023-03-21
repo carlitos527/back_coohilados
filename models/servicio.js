@@ -1,3 +1,4 @@
+import { String } from "core-js";
 import mongoose from "mongoose";
 
 const ServicioShema = new mongoose.Schema({
@@ -102,6 +103,11 @@ const ServicioShema = new mongoose.Schema({
         type: Number,
         default: 1
     },
+
+    anotacion: {
+        type: String
+    },
+    
     createdAt: {
         type: Date,
         default: Date.now
