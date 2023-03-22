@@ -73,7 +73,7 @@ const usuario = {
     },
     usuarioPutActiv: async (req, res) => {
         const { id } = req.params;
-        const usuario = await Usuario.findByIdAndUpdate(id, { estado: 'Activo' });
+        const usuario = await Usuario.findByIdAndUpdate(id, { estado: '1' });
 
         res.json({
             usuario
@@ -81,7 +81,7 @@ const usuario = {
     },
     usuarioPutDesactivar: async (req, res) => {
         const { id } = req.params;
-        const usuario = await Usuario.findByIdAndUpdate(id, { estado: 'Inactivo' });
+        const usuario = await Usuario.findByIdAndUpdate(id, { estado: '2' });
 
         res.json({
             usuario
@@ -89,7 +89,7 @@ const usuario = {
     },
     usuarioPutVacaciones: async (req, res) => {
         const { id } = req.params;
-        const usuario = await Usuario.findByIdAndUpdate(id, { estado: Vacaciones });
+        const usuario = await Usuario.findByIdAndUpdate(id, { estado: 3 });
 
         res.json({
             usuario

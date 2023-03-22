@@ -115,7 +115,7 @@ const TrabajadorDirectoShema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    },
+    }, 
     //0 inactivo  1:activo   2:vacaciones 
 })
 
