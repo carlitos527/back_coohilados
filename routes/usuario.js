@@ -58,7 +58,7 @@ router.put('/activar/:id', [
     validarCampos
 ], usuario.usuarioPutActiv)
 
-router.put('/desactivar/desactivar/:id', [
+router.put('/desactivar/:id', [
     check('id').isMongoId(),
 
     validarCampos
