@@ -71,7 +71,7 @@ router.put('/usuario/put/vacaciones/:id', [
 ], usuario.usuarioPutVacaciones) 
 
 
-router.post('/login', [
+router.post('/login', [ 
 
     check('email', 'El correo que ingreso no es valido').isEmail(),
     check('password', 'La clave no es valida').isLength({ min: 6 }),
