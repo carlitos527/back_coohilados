@@ -12,20 +12,11 @@ router.post('/', [
    
     
 
-    check('tipoDocumento', 'este campo es requerido').not().isEmpty(),
+    check('documento', 'este campo es requerido').not().isEmpty(),
     check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
 
     check('nombre', 'nombre no puede estar vacio').not().isEmpty(),
     check('nombre', 'nombre No puede tener mas de 40 caracteres').isLength({ max: 40 }),
-
-    check('direccion', 'Barrio No puede estar vacio').not().isEmpty(),
-    check('direccion', 'Barrio No puede tener mas de 50 caracteres').isLength({ max: 50 }),
-
-    check('ciudad', 'este campo debe ser mongo Id').isMongoId(),
-    check('ciudad', 'este campo es requerido').not().isEmpty(),
-
-    check('telefono', 'telefono No puede estar vacio').not().isEmpty(),
-    check('telefono', 'telefono No puede tener mas de 30 caracteres').isLength({ max: 30 }),
 
     check('email', 'El correo que ingreso no es valido').isEmail(),
     check('email').custom(helpersUsuario.existeEmail),

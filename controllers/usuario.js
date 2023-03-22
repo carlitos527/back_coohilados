@@ -9,8 +9,20 @@ const usuario = {
     usuarioPost: async (req, res) => {
 
         try {
-            const { tipoPersona, nombre, tipoDocumento, documento, direccion, ciudad, contacto, telefono, email, password, rol, estado } = req.body
-            const usuario = new Usuario({ tipoPersona, nombre, tipoDocumento, documento, direccion, ciudad, contacto, telefono, email, password, rol, estado })
+            const { nombre,
+                documento,
+                email,
+                password,
+                rol,
+                estado } = req.body
+            const usuario = new Usuario({
+                nombre,
+                documento,
+                email,
+                password,
+                rol,
+                estado
+            })
             const salt = bcryptjs.genSaltSync(10)
             usuario.password = bcryptjs.hashSync(password, salt)
             usuario.save()
@@ -92,7 +104,7 @@ const usuario = {
         }
         if (usuario.estado === 0) {
             return res.status(400).json({
-                msg: "Usuario Inactivo"  
+                msg: "Usuario Inactivo"
             })
         }
         const validPassword = bcryptjs.compareSync(password, usuario.password);
