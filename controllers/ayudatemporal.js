@@ -101,7 +101,6 @@ const temporal = {
       
   }
   },
-
   temporalGet: async (req, res) => {
     const temporal = await ayudaTemporal.find().populate({path:'areaTrabajo'}) 
 
