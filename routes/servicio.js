@@ -66,6 +66,8 @@ router.get('/', [
    
 ], servicio.trabajadorGet)
 
+router.get('/activo',servicio.trabajadorActivoGet)
+
 router.get('/:id', [
     check('id').isMongoId(),
     validarCampos

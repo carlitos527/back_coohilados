@@ -103,6 +103,20 @@ const servicio = {
     }
     
   },
+
+  trabajadorActivoGet:async (req,res)=>{
+    try {
+
+      const trabajador = await Servicio.find({estado:1})
+      if (!trabajador){return res.status(400).json({msj: "No se encontraron trabajadores ASOCIADOS activos"})}
+      res.json({ trabajador})
+      
+    } catch (error) {
+      return res.status(500).json({msj:"hable con el web master carlitox"})
+      
+    }
+
+  },
   
 
   trabajadorGet: async (req, res) => {
