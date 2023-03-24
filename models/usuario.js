@@ -27,7 +27,7 @@ const UsuarioSchema = new mongoose.Schema({
 
     area:    {
         type: String,
-        default:"Cliente"
+        required: true
     },
 
     rol:    {
