@@ -107,6 +107,19 @@ const directo = {
 
         }
     },
+    trabajador2ActivoGet:async (req,res)=>{
+        try {
+    
+          const trabajador2 = await Trabajador.find({estado:1})
+          if (!trabajador2){return res.status(400).json({msj: "No se encontraron trabajadores DIRECTO activos"})}
+          res.json({ trabajador2})
+          
+        } catch (error) {
+          return res.status(500).json({msj:"hable con el web master carlitox"})
+          
+        }
+    
+      },
     trabajadorGet: async (req, res) => {
         const trabajador2 = await Trabajador.find().populate({ path: 'areaTrabajo' })
         res.json({

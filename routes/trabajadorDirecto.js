@@ -60,6 +60,8 @@ router.post('/', [
 
 ], directo.Trabajador2Post)
 
+router.get('/activo',directo.trabajador2ActivoGet)
+
 
 router.get('/', [
     validarCampos,
