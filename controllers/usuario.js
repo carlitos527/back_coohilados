@@ -13,6 +13,7 @@ const usuario = {
                 documento,
                 email,
                 password,
+                area,
                 rol,
                 estado } = req.body
             const usuario = new Usuario({
@@ -20,6 +21,7 @@ const usuario = {
                 documento,
                 email,
                 password,
+                area,
                 rol,
                 estado
             })
