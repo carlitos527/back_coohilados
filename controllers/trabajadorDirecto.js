@@ -111,6 +111,7 @@ const directo = {
         try {
     
           const trabajador2 = await Trabajador.find({estado:1})
+          .populate({path:'areaTrabajo'});
           if (!trabajador2){return res.status(400).json({msj: "No se encontraron trabajadores DIRECTO activos"})}
           res.json({ trabajador2})
           
