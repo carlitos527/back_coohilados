@@ -1,6 +1,6 @@
 import AreaTrabajo from '../models/areaTrabajo.js'
 
-const areaTrabajo = {
+const areaTrabajo = { 
     areaPost: async (req, res) => {
         const { nombre } = req.body
 
