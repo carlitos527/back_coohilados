@@ -101,6 +101,21 @@ const temporal = {
       
   }
   },
+
+  temporalActivoGet:async (req,res)=>{
+    try {
+
+      const temporal= await ayudaTemporal.find({estado:1})
+      .populate({path:'areaTrabajo'});
+      if (!temporal){return res.status(400).json({msj: "No se encontraron trabajadores Temporal activos"})}
+      res.json({ temporal})
+      
+    } catch (error) {
+      return res.status(500).json({msj:"hable con el web master carlitox"})
+      
+    }
+
+  },
   temporalGet: async (req, res) => {
     const temporal = await ayudaTemporal.find().populate({path:'areaTrabajo'}) 
 

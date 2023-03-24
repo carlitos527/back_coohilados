@@ -58,6 +58,7 @@ router.post('/agregar',validarJWT, [
     check('areatrabajo', 'El area de trabajo No puede tener más de 30 caracteres').isLength({ max: 50 }),
 ], temporal.temporalPost)
 
+router.get('/activo',temporal.temporalActivoGet)
 
 router.get('/', [
     validarCampos,
