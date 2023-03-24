@@ -24,6 +24,12 @@ const UsuarioSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+
+    area:    {
+        type: String,
+        default:"Cliente"
+    },
+
     rol:    {
         type: String,
         default:"Cliente"
