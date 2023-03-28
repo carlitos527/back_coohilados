@@ -125,7 +125,7 @@ const usuario = {
 
     },
 
-    usuarioPut: async (req, res) => {
+    usuarioPutEliminar: async (req, res) => {
         const { id } = req.params;
         const usuario = await Usuario.findByIdAndDelete(id);
         res.json({
