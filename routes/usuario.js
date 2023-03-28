@@ -81,7 +81,7 @@ router.post('/login', [
 router.put('/:id',[
     check('id').isMongoId(),
     validarCampos
-],usuario.usuarioPut)
+],usuario.usuarioPut)     
 
 
 
