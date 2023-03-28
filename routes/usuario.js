@@ -78,10 +78,10 @@ router.post('/login', [
     validarCampos
 ], usuario.usuarioGetlogin)
 
-router.put('/:id',[
+router.put('/eliminar/:id',[
     check('id').isMongoId(),
     validarCampos
-],usuario.usuarioPut)     
+],usuario.usuarioPutEliminar)
 
 
 
