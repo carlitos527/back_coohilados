@@ -130,7 +130,7 @@ const temporal = {
   },
   temporalPut: async (req, res) => {
     const { id } = req.params;
-    const { _id, createAdt, estado, ...resto } = req.body;
+    const { _id, createdAt, estado, ...resto } = req.body;
     const temporal = await ayudaTemporal.findByIdAndUpdate(id, resto);
 
     res.json({

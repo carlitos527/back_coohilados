@@ -43,12 +43,9 @@ class Server {
 
     middlewares() {
         this.app.use(express.json())
-        this.app.use((req, res, next) => {
-            res.setHeader("Access-Control-Allow-Origin", "*")
-            res.setHeader("Access-Control-Allow-Methods", "*")
-            res.setHeader("Access-Control-Allow-Headers", "*")
-        })
-        this.app.use(cors())
+        this.app.use(cors({
+            origin:"*"
+        }))
         /* this.app.use(fileUpload({
             useTempFiles: true,
             tempFileDir: '/tmp/',
