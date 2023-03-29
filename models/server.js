@@ -10,8 +10,6 @@ import areaTrabajo from "../routes/areaTrabajo.js"
 import directo from "../routes/trabajadorDirecto.js"
 import ayudaTemporal from "../routes/ayudaTemporal.js"
 import Bitacora from "../routes/bitacora.js"
-import { white } from "excel4node/distribution/lib/types/excelColor.js"
-
 
 class Server {
     constructor() {
