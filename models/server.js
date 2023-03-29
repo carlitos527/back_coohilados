@@ -10,6 +10,7 @@ import areaTrabajo from "../routes/areaTrabajo.js"
 import directo from "../routes/trabajadorDirecto.js"
 import ayudaTemporal from "../routes/ayudaTemporal.js"
 import Bitacora from "../routes/bitacora.js"
+import { white } from "excel4node/distribution/lib/types/excelColor.js"
 
 
 class Server {
@@ -43,8 +44,9 @@ class Server {
 
     middlewares() {
         this.app.use(express.json())
+        let whiteList=['http://localhost:8080']
         this.app.use(cors({
-            origin:"*"
+            origin:whiteList
         }))
         /* this.app.use(fileUpload({
             useTempFiles: true,
