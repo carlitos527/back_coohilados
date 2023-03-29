@@ -44,9 +44,9 @@ class Server {
 
     middlewares() {
         this.app.use(express.json())
-        let whiteList=['http://localhost:8080']
+        
         this.app.use(cors({
-            origin:whiteList
+            origin:"*"
         }))
         /* this.app.use(fileUpload({
             useTempFiles: true,
