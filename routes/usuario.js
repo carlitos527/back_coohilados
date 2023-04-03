@@ -64,7 +64,7 @@ router.put('/desactivar/:id', [
     validarCampos
 ], usuario.usuarioPutDesactivar)
 
-router.put('/usuario/put/vacaciones/:id', [
+router.put('/usuario/vacaciones/:id', [
     check('id').isMongoId(),
     check('id').custom(helpersUsuario.existeUsuarioById),
     validarCampos
