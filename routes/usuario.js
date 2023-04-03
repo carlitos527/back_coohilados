@@ -9,9 +9,6 @@ const router = new Router()
 
 
 router.post('/', [
-   
-    
-
     check('documento', 'este campo es requerido').not().isEmpty(),
     check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
 
@@ -21,15 +18,10 @@ router.post('/', [
     check('email', 'El correo que ingreso no es valido').isEmail(),
     check('email').custom(helpersUsuario.existeEmail),
 
-    check('password', 'este campo es requerido').not().isEmpty(),
-    check('password', 'Favor ingrese una contraseña').isLength({ min: 8 }),
-
     check('rol', 'este campo es requerido').not().isEmpty(),
-
 
     validarCampos
 ], usuario.usuarioPost)
-
 
 router.get('/', [
     validarCampos,
@@ -45,7 +37,6 @@ router.get('/cc/nit/:documento', [
 
 
 ], usuario.usuarioGetIdent)
-
 
 router.put('/:id', [
     check('id').isMongoId(),

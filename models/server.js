@@ -21,18 +21,14 @@ class Server {
     }
     routes() {
         this.app.use('/api/usuario', usuario)
-
         this.app.use('/api/servicio', servicio)
         this.app.use('/api/ayudaTemporal', ayudaTemporal)
-
         this.app.use('/api/areaTrabajo', areaTrabajo)
         this.app.use('/api/trabajadorDirecto', directo)
-
         this.app.use('/api/departamento', infoDepartamento)
         this.app.use('/api/ciudad', infoCiudad)
         this.app.use('/api/setup', setup)
         this.app.use('/api/bitacora', Bitacora)
-
     }
 
     async conectarBd() {
