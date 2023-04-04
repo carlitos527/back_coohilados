@@ -124,7 +124,7 @@ const usuario = {
 
             const usuario = await Usuario.findOne({ email })
             if (!usuario) {
-                return res.status(400).json({ msg: "Usuario / Password no son correctos" });
+                return res.status(400).json({ msg: "Usuario no es correctos" });
             }
             if (usuario.estado === 0) {
                 return res.status(400).json({
@@ -134,7 +134,7 @@ const usuario = {
             const validPassword = bcryptjs.compareSync(password, usuario.password);
             if (!validPassword) {
                 return res.status(400).json({
-                    msg: "Usuario / Password no son correctos"
+                    msg: "Password no son correctos"
                 })
             }
 
