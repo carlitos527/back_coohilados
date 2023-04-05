@@ -68,11 +68,15 @@ const usuario = {
         } catch (error) {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
-    },
+    }, 
     usuarioPut: async (req, res) => {
         try {
             const { id } = req.params;
             const { _id, createAdt, estado, ...resto } = req.body;
+
+            const salt = bcryptjs.genSaltSync(10)
+            resto.password = bcryptjs.hashSync(resto.password, salt)
+
             const usuario = await Usuario.findByIdAndUpdate(id, resto);
 
             res.json({

@@ -7,7 +7,7 @@ const generarJWT = (uid) => {
         const tok = jwt.sign(payload, process.env.SECRETORPRIVATEKEY, {
             expiresIn: "4h"//4h
         })
-        console.log("token: "+tok);
+        
         return tok
 
    /*  return new Promise((resolve, reject) => {
