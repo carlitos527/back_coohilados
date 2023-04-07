@@ -43,6 +43,13 @@ router.put('/:id', [
     validarCampos
 ], usuario.usuarioPut)
 
+router.put('/cambiarPassword/:id',[
+    check('id','El campo id debe ser mongoId').isMongoId(),
+    check('passwordActual','El campo password actual no puede estar vacia').not().isEmpty(),
+    check('nuevaPassword','El campo nueva contraseña no puede estar vacia').not().isEmpty(),
+    validarCampos
+],usuario.cambiarPassword)
+
 router.put('/activar/:id', [
     check('id').isMongoId(),
 

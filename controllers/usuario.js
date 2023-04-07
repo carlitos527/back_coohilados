@@ -14,7 +14,7 @@ const usuario = {
                 let simbolos = ".?,;-_¡!¿*%&$/()[]{}|@><"
                 let todo = numeros + letras + simbolos;
                 let pass = "";
-        
+
                 for (let i = 0; i < 12; i++) {
                     let indiceAleatorio = Math.floor(Math.random() * todo.length);
                     pass += todo.charAt(indiceAleatorio);
@@ -68,7 +68,7 @@ const usuario = {
         } catch (error) {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
-    }, 
+    },
     usuarioPut: async (req, res) => {
         try {
             const { id } = req.params;
@@ -82,6 +82,37 @@ const usuario = {
             res.json({
                 usuario
             })
+        } catch (error) {
+            return res.status(500).json({ msg: "Hable con el WebMaster" })
+        }
+    },
+    cambiarPassword: async (req, res) => {
+        try {
+            const { id } = req.params
+            const { passwordActual, nuevaPassword } = req.body;
+
+            const usuario = await Usuario.findById({ _id: id })
+
+            if (!usuario) {
+                return res.status(404).json({ msg: "No se encontro el usuario" })
+            }
+
+            const validPassword = bcryptjs.compareSync(passwordActual, usuario.password);
+            if (!validPassword) {
+                return res.status(400).json({
+                    msg: "Password actual no coincide"
+                })
+            }
+
+            const salt = bcryptjs.genSaltSync(10)
+            const password = bcryptjs.hashSync(nuevaPassword, salt)
+
+            const modificar = await Usuario.findByIdAndUpdate(id, { password })
+            if (!modificar) {
+                return res.status(400).json({ msg: "No se pudo actualizar la contraseña" })
+            }
+
+            res.json({ modificar })
         } catch (error) {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
