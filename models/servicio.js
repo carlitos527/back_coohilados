@@ -98,9 +98,19 @@ const ServicioShema = new mongoose.Schema({
         default: "trabajador"
     },
 
-    anotacion: {
-        type: String
-    },
+    anotacion: [
+        {
+            fecha: {
+                type: Date,
+                required: true
+            },
+
+            descripcion:{
+                type:String,
+                required:true
+            }
+        }
+    ],
 
     estado: {
         type: Number,
