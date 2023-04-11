@@ -1,20 +1,15 @@
 import mongoose from 'mongoose';
 
 const UsuarioSchema = new mongoose.Schema({
-    
-    
-    
     nombre: {
         type: String,
         required: true
     },
-  
     documento: {
         type: String,
         required: true,
         unique: true
     },
-    
     email: {
         type: String,
         required: true,
@@ -25,15 +20,21 @@ const UsuarioSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-
     area:    {
         type: String,
         required: true
     },
-
-    rol:    {
+    rol: {
         type: String,
         default:"Cliente"
+    },
+    foto: {
+        type: String,
+        default:""
+    },
+    borrarFoto: {
+        type: String,
+        default:""
     },
     estado: {
         type: Number,//0 inactivo  1:activo   2:vacaciones

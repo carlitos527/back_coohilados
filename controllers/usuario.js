@@ -1,7 +1,7 @@
 import Usuario from '../models/usuario.js';
 import { generarJWT } from '../middlewares/validar-jwt.js';
 import bcryptjs from 'bcryptjs'
-import helpersBitacora from '../helpers/bitacora.js';
+import { v2 as cloudinary } from 'cloudinary'
 
 const usuario = {
     usuarioPost: async (req, res) => {
@@ -68,6 +68,48 @@ const usuario = {
         } catch (error) {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
+    },
+    cargarArchivoCloud: async (req, res) => {
+        cloudinary.config({
+            cloud_name: process.env.CLOUDINARY_NAME,
+            api_key: process.env.CLOUDINARY_KEY,
+            api_secret: process.env.CLOUDINARY_SECRET,
+            secure: true
+        });
+
+        try {
+            const { id } = req.params;
+            if (!req.files.archivo || Object.keys(req.files.archivo).length === 0) {
+                return res.status(400).json({ msg: 'No subió ningun archivo' })
+            }
+
+            //subir archivo
+            const { tempFilePath } = req.files.archivo;
+            console.log(tempFilePath);
+            cloudinary.uploader.upload(tempFilePath, {
+                folder: "Coohilados"
+            },
+                async function (error, result) {
+                    if (result) {
+                        let usuario = await Usuario.findById(id);
+                        if (usuario.foto) {
+                            /* const nombreTemp = usuario.foto.split('/')
+                            const nombreArchivo = nombreTemp[nombreTemp.length - 1] // hgbkoyinhx9ahaqmpcwl jpg
+                            const [public_id] = nombreArchivo.split('.') */
+                            await cloudinary.uploader.destroy(usuario.borrarFoto)
+                        }
+                        usuario = await Usuario.findByIdAndUpdate(id, { foto: result.url, borrarFoto: result.public_id })
+                        //responder
+                        res.json({ url: result.url });
+
+                    } else {
+                        res.json(error)
+                    }
+                })
+        } catch (error) {
+            return res.status(500).json({ msg: "Hable con el WebMaster" })
+        }
+
     },
     usuarioPut: async (req, res) => {
         try {

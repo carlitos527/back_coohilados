@@ -7,7 +7,6 @@ import { validarJWT } from "../middlewares/validar-jwt.js"
 
 const router = new Router()
 
-
 router.post('/', [
     check('documento', 'este campo es requerido').not().isEmpty(),
     check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
@@ -22,6 +21,11 @@ router.post('/', [
 
     validarCampos
 ], usuario.usuarioPost)
+
+router.post('/uploadinary/:id', [
+    check('id', 'No es un ID válido').isMongoId(),
+    validarCampos
+], usuario.cargarArchivoCloud)
 
 router.get('/', [
     validarCampos,
@@ -67,7 +71,6 @@ router.put('/vacaciones/:id', [
     check('id').custom(helpersUsuario.existeUsuarioById),
     validarCampos
 ], usuario.usuarioPutVacaciones) 
-
 
 router.post('/login', [ 
 
