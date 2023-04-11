@@ -79,9 +79,6 @@ const usuario = {
 
         try {
             const { id } = req.params;
-            if (!req.files.archivo || Object.keys(req.files.archivo).length === 0) {
-                return res.status(400).json({ msg: 'No subió ningun archivo' })
-            }
 
             //subir archivo
             const { tempFilePath } = req.files.archivo;
