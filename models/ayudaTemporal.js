@@ -35,12 +35,12 @@ const AyudaTemporalSchema = new mongoose.Schema({
         ref: "Ciudad",
         required: true
     },
-    
+
     telefono: {
         type: Number,
         required: true
     },
-    
+
     nombre: {
         type: String,
         required: true
@@ -49,15 +49,15 @@ const AyudaTemporalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
+
     fechaNacimiento: {
-        type: Date,  
+        type: Date,
         required: true
     },
-    
+
     fechaInicio: {
         type: Date,
-        maxLength: 14, 
+        maxLength: 14,
 
     },
 
@@ -70,7 +70,7 @@ const AyudaTemporalSchema = new mongoose.Schema({
     tiempoLaborado: {
         type: Number,
         maxLength: 10,
-        default:0
+        default: 0
     },
     tipoContrato: {
         type: String,
@@ -79,29 +79,39 @@ const AyudaTemporalSchema = new mongoose.Schema({
 
 
     salario: {
-        type: Number, 
+        type: Number,
         required: true
-        },
+    },
 
     areaTrabajo: {
         type: mongoose.Schema.ObjectId,
         ref: "areaTrabajo",
         maxLength: 20,
-        
+
     },
     rol: {
         type: String,
         default: "trabajador"
     },
-    
+
     estado: {
         type: Number,
-        default: 1 
+        default: 1
     },
 
-    anotacion: {
-        type: String
-    },
+    anotacion: [
+        {
+            fecha: {
+                type: Date,
+                required: true
+            },
+
+            descripcion:{
+                type:String,
+                required:true
+            }
+        }
+    ],
     createdAt: {
         type: Date,
         default: Date.now
@@ -110,4 +120,3 @@ const AyudaTemporalSchema = new mongoose.Schema({
 })
 
 export default mongoose.model('Temporal', AyudaTemporalSchema)
- 
