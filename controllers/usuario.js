@@ -77,12 +77,16 @@ const usuario = {
             secure: true
         });
 
+
+        const { id } = req.params;
         try {
-            const { id } = req.params;
+
 
             //subir archivo
             const { tempFilePath } = req.files.archivo;
-            console.log(tempFilePath);
+            if (!tempFilePath) {
+                return res.status(400).json({ msg: "no se subió ningún archivo" })
+            }
             cloudinary.uploader.upload(tempFilePath, {
                 folder: "Coohilados"
             },
@@ -106,7 +110,6 @@ const usuario = {
         } catch (error) {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
-
     },
     usuarioPut: async (req, res) => {
         try {
