@@ -82,7 +82,13 @@ const usuario = {
             //subir archivo
             const { tempFilePath } = req.files.archivo;
             
-            cloudinary.uploader.upload(tempFilePath,{folder:"Coohilados"},
+            cloudinary.uploader.upload(tempFilePath,{
+                folder:"Coohilados",
+                gravity:"auto",
+                width:"400", 
+                height:"400",
+                crop:"thumb"
+            },
                 async function (error, result) {
                     if (result) {
                         let usuario = await Usuario.findById(id);
@@ -95,6 +101,7 @@ const usuario = {
                         usuario = await Usuario.findByIdAndUpdate(id, { foto: result.url, borrarFoto: result.public_id })
                         //responder
                         res.json({ url: result.url });
+                        console.log(result);
 
                     } else {
                         res.json(error)
