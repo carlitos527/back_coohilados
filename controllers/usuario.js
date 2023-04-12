@@ -92,7 +92,7 @@ const usuario = {
                 async function (error, result) {
                     if (result) {
                         let usuario = await Usuario.findById(id);
-                        if (usuario.foto) {
+                        if (usuario.foto && usuario.borrarFoto) {
                             /* const nombreTemp = usuario.foto.split('/')
                             const nombreArchivo = nombreTemp[nombreTemp.length - 1] // hgbkoyinhx9ahaqmpcwl jpg
                             const [public_id] = nombreArchivo.split('.') */
