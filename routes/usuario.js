@@ -4,6 +4,7 @@ import { validarCampos } from "../middlewares/validar-campos.js"
 import { check } from "express-validator"
 import { helpersUsuario } from "../helpers/usuario.js"
 import { validarJWT } from "../middlewares/validar-jwt.js"
+import validarArchivo from "../middlewares/validar-archivo.js"
 
 const router = new Router()
 
@@ -24,6 +25,7 @@ router.post('/', [
 
 router.post('/uploadinary/:id', [
     check('id', 'No es un ID válido').isMongoId(),
+    validarArchivo,
     validarCampos
 ], usuario.cargarArchivoCloud)
 

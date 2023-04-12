@@ -1,5 +1,6 @@
 import express from "express"
 import cors from "cors"
+import fileUpload from "express-fileupload"
 import { dbConnection } from "../database/config.js"
 import infoDepartamento from "../routes/ciudad.js"
 import infoCiudad from "../routes/ciudad.js"
@@ -40,11 +41,11 @@ class Server {
         this.app.use(express.json())
         
         this.app.use(cors())
-        /* this.app.use(fileUpload({
+        this.app.use(fileUpload({
             useTempFiles: true,
             tempFileDir: '/tmp/',
             createParentPath: true
-        })); */
+        }));
 
     }
 

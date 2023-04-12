@@ -81,10 +81,8 @@ const usuario = {
         try {
             //subir archivo
             const { tempFilePath } = req.files.archivo;
-            if (!tempFilePath) {
-                return res.status(400).json({ msg: "no se subió ningún archivo" })
-            }
-            cloudinary.uploader.upload(tempFilePath,
+            
+            cloudinary.uploader.upload(tempFilePath,{folder:"Coohilados"},
                 async function (error, result) {
                     if (result) {
                         let usuario = await Usuario.findById(id);
