@@ -30,35 +30,7 @@ const directo = {
                 estado } = req.body
 
 
-            const consecutivo = await Setup.findOne();
-            let conse = "";
-            if (consecutivo.consecutivoDirecto.toString().length == 1) {
-                conse = `000${consecutivo.consecutivoDirecto}`;
-            } else if (consecutivo.consecutivoDirecto.toString().length == 2) {
-                conse = `00${consecutivo.consecutivoDirecto}`;
-            } else if (consecutivo.consecutivoDirecto.toString().length == 3) {
-                conse = `0${consecutivo.consecutivoDirecto}`;
-            } else {
-                conse = consecutivo.consecutivoDirecto;
-            }
-
-            const d = new Date();
-            let year = d.getFullYear();
-            let cotiNumero = "".concat(conse, "-", year, "-" + "V1");
-
-            console.log("conca:  " + cotiNumero);
-
-            let consecutivodirecto = consecutivo.consecutivoDirecto + 1;
-            const guardar = await Setup.findByIdAndUpdate(consecutivo._id, {
-                consecutivoDirecto: consecutivodirecto
-            });
-
-            if (!guardar) {
-                return res.status(400)
-                    .json({
-                        msg: "No se puede actualizar la información del trabajador"
-                    });
-            };
+            
 
             let fechaI = new Date(fechaInicio);
             let fechaF = new Date(fechaFin);

@@ -28,35 +28,7 @@ const temporal = {
         anotacion,
         estado } = req.body
 
-      const consecutivo = await Setup.findOne();
-      let conse = "";
-      if (consecutivo.consecutivoTemporal.toString().length == 1) {
-        conse = `000${consecutivo.consecutivoTemporal}`;
-      } else if (consecutivo.consecutivoTemporal.toString().length == 2) {
-        conse = `00${consecutivo.consecutivoTemporal}`;
-      } else if (consecutivo.consecutivoTemporal.toString().length == 3) {
-        conse = `0${consecutivo.consecutivoTemporal}`;
-      } else {
-        conse = consecutivo.consecutivoTemporal;
-      }
-      const d = new Date();
-      let year = d.getFullYear();
-      let cotiNumero = "".concat(conse, "-", year, "-" + "V1");
-      /* console.log(''.concat(conse,'-',year,'V1')); */
-      console.log("conca: " + cotiNumero);
-      /* consecutivo.consecutivoOferta++ */
-      let consecutivotemporal = consecutivo.consecutivoTemporal + 1;
-      const guardar = await Setup.findByIdAndUpdate(consecutivo._id, {
-        consecutivoTemporal: consecutivotemporal,
-      });
-      if (!guardar) {
-        return res
-          .status(400)
-          .json({
-            msg: "No se pudo actualizar la informacion del consecutivo Temporal",
-          });
-      };
-
+     
       let fechaI = new Date(fechaInicio);
       let fechaF = new Date(fechaFin);
       let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000))

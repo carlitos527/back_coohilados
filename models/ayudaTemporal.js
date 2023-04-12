@@ -10,8 +10,8 @@ const AyudaTemporalSchema = new mongoose.Schema({
     documento: {
         type: Number,
         required: true,
-        unique: true,
-        default: "Natural"
+        unique: true, 
+        default: "Natural"  
     },
 
     tipo: {

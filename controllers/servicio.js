@@ -28,36 +28,7 @@ const servicio = {
         anotacion,
         estado } = req.body
   
-        const consecutivo = await Setup.findOne();
-        let conse="";
-        if (consecutivo.consecutivoTrabajador.toString().length ==1){
-          conse =`000${consecutivo.consecutivoTrabajador}`;
-        }else if (consecutivo.consecutivoTrabajador.toString().length == 2) {
-          conse=`00${consecutivo.consecutivoTrabajador}`;
-        }else if (consecutivo.consecutivoTrabajador.toString().length ==3){
-          conse=`0${consecutivo.consecutivoTrabajador}`;
-        }else {
-          conse = consecutivo.consecutivoTrabajador;
-        }
-  
-        const d = new Date();
-        let year = d.getFullYear();
-        let cotiNumero ="".concat(conse, "-", year, "-"+"V1");
         
-        console.log("conca:  "+cotiNumero);
-  
-        let consecutivotrabajador = consecutivo.consecutivoTrabajador+ 1;
-        const guardar = await Setup.findByIdAndUpdate(consecutivo._id, {
-          consecutivoTrabajador:consecutivotrabajador
-        });
-        
-        if (!guardar){
-          return res.status(400)
-          .json({
-            msg:"No se puede actualizar la información del trabajador"
-          });
-        };
-
         
       const trabajador = new Servicio({ 
         nombre,
