@@ -10,6 +10,8 @@ const servicio = {
       const {
         nombre,
         tipo,
+        arl,
+        eps,
         sexo,
         fechaNacimiento,
         tipoDocumento,
@@ -33,6 +35,8 @@ const servicio = {
       const trabajador = new Servicio({ 
         nombre,
         tipo,
+        arl,
+        eps,
         sexo,
         fechaNacimiento,
         tipoDocumento,

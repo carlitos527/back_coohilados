@@ -19,6 +19,16 @@ const AyudaTemporalSchema = new mongoose.Schema({
         required: true,
     },
 
+    arl: {
+        type: String,
+        required: true,
+    },
+
+    eps: {
+        type: String,
+        required: true,
+    },
+
     barrio: {
         type: String,
         required: true

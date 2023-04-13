@@ -18,6 +18,12 @@ router.post('/', [
 
     check('tipo', 'tipo  no puede estar vacio ').not().isEmpty(),
 
+    check('arl', 'arl no puede estar vacio ').not().isEmpty(),
+    check('arl', 'arl No puede tener mas de 50 caracteres').isLength({ max: 50 }),
+
+    check('eps', 'eps  no puede estar vacio ').not().isEmpty(),
+    check('eps', 'eps No puede tener mas de 50 caracteres').isLength({ max: 50 }),
+
     check('sexo', 'sexo  no puede estar vacio ').not().isEmpty(),
     check('sexo', 'sexo No puede tener mas de 1 caracteres').isLength({ max: 1 }),
 

@@ -16,6 +16,17 @@ const TrabajadorDirectoShema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
+    arl: {
+        type: String,
+        required: true,
+    },
+
+    eps: {
+        type: String,
+        required: true,
+    },
+    
     sexo: {
         type: String,
         required: true
