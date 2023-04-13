@@ -1,6 +1,6 @@
 import Trabajador from '../models/trabajadorDirecto.js'
-import Setup from '../models/setup.js'
-import helpersBitacora from '../helpers/bitacora.js';
+
+
 
 
 const directo = {

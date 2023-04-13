@@ -10,7 +10,7 @@ import servicio from "../routes/servicio.js"
 import areaTrabajo from "../routes/areaTrabajo.js"
 import directo from "../routes/trabajadorDirecto.js"
 import ayudaTemporal from "../routes/ayudaTemporal.js"
-import Bitacora from "../routes/bitacora.js"
+
 
 class Server {
     constructor() {
@@ -29,7 +29,6 @@ class Server {
         this.app.use('/api/departamento', infoDepartamento)
         this.app.use('/api/ciudad', infoCiudad)
         this.app.use('/api/setup', setup)
-        this.app.use('/api/bitacora', Bitacora)
     }
 
     async conectarBd() {

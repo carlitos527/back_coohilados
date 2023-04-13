@@ -1,7 +1,5 @@
 
 import ayudaTemporal from '../models/ayudaTemporal.js';
-import Setup from '../models/setup.js'
-import helpersBitacora from '../helpers/bitacora.js';
 
 
 const temporal = {
