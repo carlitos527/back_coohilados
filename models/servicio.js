@@ -15,6 +15,12 @@ const ServicioShema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
+    rh: {
+        type: String,
+        required: true,
+    },
+    
     arl: {
         type: String,
         required: true,

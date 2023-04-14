@@ -28,7 +28,7 @@ const usuario = {
             const usuario = await Usuario.findByIdAndUpdate(id, {password });
 
             res.json({
-                usuario, aleatorio
+                usuario, aleatorio 
             })
             
             

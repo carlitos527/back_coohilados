@@ -11,6 +11,7 @@ const directo = {
 
                 nombre,
                 tipo,
+                rh,
                 arl,
                 eps,
                 sexo,
@@ -43,6 +44,7 @@ const directo = {
 
                 nombre,
                 tipo,
+                rh,
                 arl,
                 eps,
                 sexo,
