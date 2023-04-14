@@ -8,6 +8,11 @@ import validarArchivo from "../middlewares/validar-archivo.js"
 
 const router = new Router()
 
+router.put("/resetearPassword/:id", [
+    check('id').isMongoId(),
+    validarCampos
+],usuario.resetearPassword)
+
 router.post('/', [
     check('documento', 'este campo es requerido').not().isEmpty(),
     check('documento', 'Favor ingrese un numero de documento').isLength({ min: 6 }),
@@ -49,12 +54,12 @@ router.put('/:id', [
     validarCampos
 ], usuario.usuarioPut)
 
-router.put('/cambiarPassword/:id',[
-    check('id','El campo id debe ser mongoId').isMongoId(),
-    check('passwordActual','El campo password actual no puede estar vacia').not().isEmpty(),
-    check('nuevaPassword','El campo nueva contraseña no puede estar vacia').not().isEmpty(),
+router.put('/cambiarPassword/:id', [
+    check('id', 'El campo id debe ser mongoId').isMongoId(),
+    check('passwordActual', 'El campo password actual no puede estar vacia').not().isEmpty(),
+    check('nuevaPassword', 'El campo nueva contraseña no puede estar vacia').not().isEmpty(),
     validarCampos
-],usuario.cambiarPassword)
+], usuario.cambiarPassword)
 
 router.put('/activar/:id', [
     check('id').isMongoId(),
@@ -72,19 +77,19 @@ router.put('/vacaciones/:id', [
     check('id').isMongoId(),
     check('id').custom(helpersUsuario.existeUsuarioById),
     validarCampos
-], usuario.usuarioPutVacaciones) 
+], usuario.usuarioPutVacaciones)
 
-router.post('/login', [ 
+router.post('/login', [
 
     check('email', 'El correo que ingreso no es valido').isEmail(),
     check('password', 'La clave no es valida').isLength({ min: 6 }),
     validarCampos
 ], usuario.usuarioGetlogin)
 
-router.put('/eliminar/:id',[
+router.put('/eliminar/:id', [
     check('id').isMongoId(),
     validarCampos
-],usuario.usuarioPutEliminar)
+], usuario.usuarioPutEliminar)
 
 
 

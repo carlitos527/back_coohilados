@@ -4,6 +4,37 @@ import bcryptjs from 'bcryptjs'
 import { v2 as cloudinary } from 'cloudinary'
 
 const usuario = {
+    resetearPassword:async(req,res)=>{
+        const {id}=req.params
+        try {
+            const generarPassword = () => {
+                let numeros = "0123456789";
+                let letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+                let simbolos = ".?,;-_¡!¿*%&$/()[]{}|@><"
+                let todo = numeros + letras + simbolos;
+                let pass = "";
+
+                for (let i = 0; i < 12; i++) {
+                    let indiceAleatorio = Math.floor(Math.random() * todo.length);
+                    pass += todo.charAt(indiceAleatorio);
+                }
+                return pass
+            }
+
+            let password = generarPassword()
+            const usuario = await Usuario.findByIdAndUpdate(id, password);
+
+            res.json({
+                usuario
+            })
+            
+            
+        } catch (error) {
+            return res.status(500).json({ msg: "La contraseña no pudo ser ingresado hable con el web master carlitos" })
+
+        }
+
+    },
     usuarioPost: async (req, res) => {
         try {
             const { nombre, documento, email, area, rol } = req.body
