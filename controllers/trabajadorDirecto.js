@@ -11,6 +11,7 @@ const directo = {
 
                 nombre,
                 tipo,
+                pension,
                 rh,
                 arl,
                 eps,
@@ -44,6 +45,7 @@ const directo = {
 
                 nombre,
                 tipo,
+                pension,
                 rh,
                 arl,
                 eps,

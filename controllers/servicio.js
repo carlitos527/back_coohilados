@@ -9,6 +9,7 @@ const servicio = {
       const {
         nombre,
         tipo,
+        pension,
         rh,
         arl,
         eps,
@@ -36,6 +37,7 @@ const servicio = {
         nombre,
         tipo,
         rh,
+        pension,
         arl,
         eps,
         sexo,

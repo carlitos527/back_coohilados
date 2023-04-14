@@ -20,6 +20,10 @@ router.post('/agregar',validarJWT, [
 
     check('tipo', 'tipo  no puede estar vacio ').not().isEmpty(),
 
+    check('pension', 'Pension puede estar vacio ').not().isEmpty(),
+    check('pension', 'Pension No puede tener mas de 50 caracteres').isLength({ max: 10 }),
+
+
     check('rh', 'rh puede estar vacio ').not().isEmpty(),
     check('rh', 'rh No puede tener mas de 50 caracteres').isLength({ max: 5 }),
 

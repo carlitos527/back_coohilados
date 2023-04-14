@@ -19,6 +19,11 @@ const AyudaTemporalSchema = new mongoose.Schema({
         required: true,
     },
 
+    pension: {
+        type: String,
+        required: true,
+    },
+
     rh: {
         type: String,
         required: true,

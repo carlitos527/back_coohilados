@@ -20,6 +20,10 @@ const ServicioShema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    pension: {
+        type: String,
+        required: true,
+    },
     
     arl: {
         type: String,
