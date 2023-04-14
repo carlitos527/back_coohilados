@@ -21,11 +21,14 @@ const usuario = {
                 return pass
             }
 
-            let password = generarPassword()
-            const usuario = await Usuario.findByIdAndUpdate(id, password);
+            let aleatorio = generarPassword()
+
+            const salt = bcryptjs.genSaltSync(10)
+            const password = bcryptjs.hashSync(aleatorio, salt)
+            const usuario = await Usuario.findByIdAndUpdate(id, {password });
 
             res.json({
-                usuario,password
+                usuario, aleatorio
             })
             
             
