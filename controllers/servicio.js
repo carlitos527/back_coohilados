@@ -31,8 +31,6 @@ const servicio = {
         anotacion,
         estado } = req.body
   
-        
-        
       const trabajador = new Servicio({ 
         nombre,
         tipo,
@@ -60,26 +58,14 @@ const servicio = {
       });
   
       if(!trabajador){
-        return res
-          .status(400)
-          .json({msg:"No se puedo registrar el trabajador "});
+        return res.status(400).json({msg:"No se puedo registrar el trabajador "});
       }
-      
       trabajador.save();
-      const usuario =req.usuario
-      let idPersona =usuario._id;
-      let mensaje=`el trabajador Asociado fue registrado exitosamente, por ${usuario.nombre}`
-  
       res.json({ trabajador });
-  
-      console.log(ciudad)
-  
-      helpersBitacora.guardarBitacora(idPersona, mensaje)  
   
     } catch (error) {
       return res.status(500).json({ msg: "No se pudo crear el trabajador asociado, hable con el web master carlitos" }) 
     }
-    
   },
   trabajadorActivoGet:async (req,res)=>{
     try {
@@ -93,7 +79,6 @@ const servicio = {
     }
 
   },
-
   trabajadorGet: async (req, res) => {
     try {
     const trabajador = await Servicio.find().populate({path:'areaTrabajo'})

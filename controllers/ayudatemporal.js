@@ -30,7 +30,6 @@ const temporal = {
         anotacion,
         estado } = req.body
 
-     
       let fechaI = new Date(fechaInicio);
       let fechaF = new Date(fechaFin);
       let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000))
@@ -62,21 +61,13 @@ const temporal = {
       });
 
       if (!temporal) {
-        return res
-          .status(400)
-          .json({ msg: "No se puedo registrar el trabajador temporal" });
+        return res.status(400).json({ msg: "No se puedo registrar el trabajador temporal" });
       }
       temporal.save();
       res.json({ temporal });
 
-      const usuario = req.usuario
-      let idPersona = usuario._id;
-      let mensaje = `El trabajador temporal fue registrada exitosamente, por ${usuario.nombre}`
-      helpersBitacora.guardarBitacora(idPersona, mensaje)
-
     } catch (error) {
       return res.status(500).json({ msg: "el trabajador temporal no pudo ser ingresado hable con el web master carlitos" })
-
     }
   },
   temporalActivoGet: async (req, res) => {
@@ -146,7 +137,6 @@ const temporal = {
       return res.status(500).json({ msg: "Hable con el WebMaster" })
     }
   },
-
   temporalPutActiv: async (req, res) => {
     try {
       const { id } = req.params;

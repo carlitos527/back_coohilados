@@ -5,7 +5,6 @@ import Trabajador from '../models/trabajadorDirecto.js'
 
 const directo = {
     Trabajador2Post: async (req, res) => {
-
         try {
             const {
 
@@ -34,12 +33,9 @@ const directo = {
                 estado } = req.body
 
 
-
-
             let fechaI = new Date(fechaInicio);
             let fechaF = new Date(fechaFin);
             let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000))
-
 
             const trabajador2 = new Trabajador({
 
@@ -70,17 +66,10 @@ const directo = {
             });
 
             if (!trabajador2) {
-                return res
-                    .status(400)
-                    .json({ msg: "No se puedo registrar el trabajador directo" });
+                return res.status(400).json({ msg: "No se puedo registrar el trabajador directo" });
             }
-
             trabajador2.save();
             res.json({ trabajador2 });
-            const usuario = req.usuario
-            let idPersona = usuario._id;
-            let mensaje = `El trabajador Directo fue registrada exitosamente, por ${usuario.nombre}`
-            helpersBitacora.guardarBitacora(idPersona, mensaje)
 
         } catch (error) {
             return res.status(500).json({ msg: "el trabajador Directo no pudo ser ingresado, hable con web master carlitos" })
@@ -153,7 +142,6 @@ const directo = {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
     },
-
     trabajadorPutActiv: async (req, res) => {
         try {
             const { id } = req.params;
@@ -190,7 +178,6 @@ const directo = {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
     },
-
     trabajadorDelete: async (req, res) => {
         try {
             const { id } = req.params;
@@ -202,7 +189,6 @@ const directo = {
             return res.status(500).json({ msg: "Hable con el WebMaster" })
         }
     }
-
 }
 
 
