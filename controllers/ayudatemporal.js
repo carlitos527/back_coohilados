@@ -30,9 +30,9 @@ const temporal = {
         anotacion,
         estado } = req.body
 
-      let fechaI = new Date(fechaInicio);
+      /* let fechaI = new Date(fechaInicio);
       let fechaF = new Date(fechaFin);
-      let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000))
+      let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000)) */
 
       const temporal = new ayudaTemporal({
         tipoDocumento,
@@ -51,7 +51,6 @@ const temporal = {
         fechaNacimiento,
         fechaInicio,
         fechaFin,
-        tiempoLaborado: fecha,
         tipoContrato,
         salario,
         areaTrabajo,

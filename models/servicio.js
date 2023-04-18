@@ -1,12 +1,10 @@
 import mongoose from "mongoose";
 
 const ServicioShema = new mongoose.Schema({
-
     tipoDocumento: {
         type: String,
         required: true
     },
-
     nombre: {
         type: String,
         required: true
@@ -15,7 +13,6 @@ const ServicioShema = new mongoose.Schema({
         type: String,
         required: true,
     },
-
     rh: {
         type: String,
         required: true,
@@ -24,17 +21,14 @@ const ServicioShema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    
     arl: {
         type: String,
         required: true,
     },
-
     eps: {
         type: String,
         required: true,
     },
-
     sexo: {
         type: String,
         required: true
@@ -43,80 +37,59 @@ const ServicioShema = new mongoose.Schema({
         type: Date,
         required: true
     },
-
-
-
-
     tipoDocumento: {
         type: String,
         required: true
     },
-
     documento: {
-
         type: Number,
         required: true
     },
-
     email: {
         type: String,
         required: true,
         unique: true
     },
-
     ciudad: {
         type: mongoose.Schema.ObjectId,
         ref: "Ciudad",
         required: true
     },
-
-
     barrio: {
         type: String,
         required: true
     },
-
     telefono: {
         type: Number,
         maxLength: 14,
         required: true
     },
-    
     tipoContrato: {
         type: String,
         required: true
     },
-
     areaTrabajo: {
         type: mongoose.Schema.ObjectId,
         ref: "areaTrabajo",
         maxLength: 20,
         required: true
     },
-
     salario: {
         type: Number,
         required: true
     },
-
-
     fechaInicio: {
         type: Date,
         maxLength: 14,
-
     },
-
     fechaVacaciones: {
         type: Date,
         maxLength: 14,
-
     },
-
     rol: {
         type: String,
         default: "trabajador"
     },
-
     anotacion: [
         {
             fecha: {
@@ -130,7 +103,6 @@ const ServicioShema = new mongoose.Schema({
             }
         }
     ],
-
     estado: {
         type: Number,
         default: 1

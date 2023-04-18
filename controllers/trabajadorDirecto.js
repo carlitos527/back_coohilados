@@ -1,13 +1,9 @@
 import Trabajador from '../models/trabajadorDirecto.js'
 
-
-
-
 const directo = {
     Trabajador2Post: async (req, res) => {
         try {
             const {
-
                 nombre,
                 tipo,
                 pension,
@@ -32,13 +28,11 @@ const directo = {
                 rol,
                 estado } = req.body
 
-
-            let fechaI = new Date(fechaInicio);
+            /* let fechaI = new Date(fechaInicio);
             let fechaF = new Date(fechaFin);
-            let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000))
+            let fecha = ((fechaF - fechaI) / (24 * 60 * 60 * 1000)) */
 
             const trabajador2 = new Trabajador({
-
                 nombre,
                 tipo,
                 pension,
@@ -59,7 +53,6 @@ const directo = {
                 salario,
                 fechaInicio,
                 fechaFin,
-                tiempoLaborado: fecha,
                 anotacion,
                 rol,
                 estado
