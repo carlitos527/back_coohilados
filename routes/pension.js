@@ -17,4 +17,6 @@ router.put('/modificar/:id',[
     validarCampos
 ],pension.modificarPension)
 
+router.get('/ver',pension.verPensiones)
+
 export default router

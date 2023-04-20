@@ -29,6 +29,17 @@ const pension = {
         } catch (error) {
             return res.status(500).json({msg:"Hable con el WebMaster"})
         }
+    },
+    verPensiones : async (req,res)=>{
+        try {
+            const pension = await Pension.find();
+            if(!pension){
+                return res.status(400).json({msg:"No se encontraron registro de pensión"})
+            }
+            res.json({pension})
+        } catch (error) {
+            return res.status(500).json({msg:"Hable con el WebMaster"})
+        }
     }
 }
 
