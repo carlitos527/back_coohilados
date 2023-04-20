@@ -10,6 +10,7 @@ import servicio from "../routes/servicio.js"
 import areaTrabajo from "../routes/areaTrabajo.js"
 import directo from "../routes/trabajadorDirecto.js"
 import ayudaTemporal from "../routes/ayudaTemporal.js"
+import pension from "../routes/pension.js"
 
 
 class Server {
@@ -29,6 +30,7 @@ class Server {
         this.app.use('/api/departamento', infoDepartamento)
         this.app.use('/api/ciudad', infoCiudad)
         this.app.use('/api/setup', setup)
+        this.app.use('/api/pension',pension)
     }
 
     async conectarBd() {
