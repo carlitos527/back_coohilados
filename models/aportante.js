@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ServicioShema = new mongoose.Schema({
+const AportanteSchema = new mongoose.Schema({
     tipoDocumento: {
         type: String,
         required: true
@@ -13,22 +13,7 @@ const ServicioShema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    rh: {
-        type: String,
-        required: true,
-    },
-    pension: {
-        type: String,
-        required: true,
-    },
-    arl: {
-        type: String,
-        required: true,
-    },
-    eps: {
-        type: String,
-        required: true,
-    },
+    
     sexo: {
         type: String,
         required: true
@@ -61,31 +46,18 @@ const ServicioShema = new mongoose.Schema({
         maxLength: 14,
         required: true
     },
-    tipoContrato: {
-        type: String,
-        required: true
-    },
-    areaTrabajo: {
-        type: mongoose.Schema.ObjectId,
-        ref: "areaTrabajo",
-        maxLength: 20,
-        required: true
-    },
-    salario: {
-        type: Number,
-        required: true
-    },
+    
     fechaInicio: {
         type: Date,
         maxLength: 14,
     },
-    fechaVacaciones: {
+    fechaFin: {
         type: Date,
         maxLength: 14,
     },
     rol: {
         type: String,
-        default: "trabajador"
+        default: "Asociado"
     },
     anotacion: [
         {
@@ -111,4 +83,4 @@ const ServicioShema = new mongoose.Schema({
     //0 inactivo  1:activo   2:vacaciones 
 })
 
-export default mongoose.model("Trabajador", ServicioShema);
+export default mongoose.model("Aportante", AportanteSchema );

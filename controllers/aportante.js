@@ -1,67 +1,51 @@
-import Servicio from '../models/servicio.js'
+import Aportante from '../models/aportante.js'
 
 
 
-const servicio = {
+const aportante = {
   TrabajadorPost: async (req, res) => { 
 
     try {
       const {
-        nombre,
-        tipo,
-        pension,
-        rh,
-        arl,
-        eps,
-        sexo,
-        fechaNacimiento,
         tipoDocumento,
         documento,
+        nombre,
+        tipo,
+        sexo,
+        fechaNacimiento,
         email,
         ciudad,
         barrio,
         telefono,
-        tipoContrato,
-        cargo,
-        areaTrabajo,
-        salario,
         fechaInicio,
-        fechaVacaciones,
+        fechaFin,
         rol,
         anotacion,
         estado } = req.body
   
-      const trabajador = new Servicio({ 
-        nombre,
-        tipo,
-        rh,
-        pension,
-        arl,
-        eps,
-        sexo,
-        fechaNacimiento,
+      const trabajador3 = new Aportante({ 
         tipoDocumento,
         documento,
+        nombre,
+        tipo,
+        sexo,
+        fechaNacimiento,
         email,
         ciudad,
         barrio,
         telefono,
-        tipoContrato,
-        cargo,
-        areaTrabajo,
-        salario,
         fechaInicio,
-        fechaVacaciones,
-        anotacion,
+        fechaFin,
         rol,
+        anotacion,
         estado
       });
   
-      if(!trabajador){
+      if(!trabajador3){
         return res.status(400).json({msg:"No se puedo registrar el trabajador "});
       }
-      trabajador.save();
-      res.json({ trabajador });
+      trabajador3.save();
+      res.json({ trabajador3 });
   
     } catch (error) {
       return res.status(500).json({ msg: "No se pudo crear el trabajador asociado, hable con el web master carlitos" }) 
@@ -69,10 +53,10 @@ const servicio = {
   },
   trabajadorActivoGet:async (req,res)=>{
     try {
-      const trabajador = await Servicio.find({estado:1})
+      const trabajador3 = await Aportante.find({estado:1})
       .populate({path:'areaTrabajo'});
-      if (!trabajador){return res.status(400).json({msj: "No se encontraron trabajadores ASOCIADOS activos"})}
-      res.json({ trabajador})
+      if (!trabajador3){return res.status(400).json({msj: "No se encontraron trabajadores ASOCIADOS activos"})}
+      res.json({ trabajador3})
     } catch (error) {
       return res.status(500).json({msj:"hable con el web master carlitox"})
       
@@ -81,9 +65,9 @@ const servicio = {
   },
   trabajadorGet: async (req, res) => {
     try {
-    const trabajador = await Servicio.find().populate({path:'areaTrabajo'})
+    const trabajador3 = await Aportante.find().populate({path:'areaTrabajo'})
     res.json({
-      trabajador
+      trabajador3
     }) 
   } catch (error) {
       return res.status(500).json({ msg: "Hable con el WebMaster" })
@@ -93,10 +77,10 @@ const servicio = {
   trabajadorGetId: async (req, res) => {
     try {
     const { id } = req.params
-    const trabajador = await Servicio.findById(id)
+    const trabajador3 = await Aportante.findById(id)
 
     res.json({
-      trabajador
+      trabajador3
     })
   } catch (error) {
       return res.status(500).json({ msg: "Hable con el WebMaster" })
@@ -106,13 +90,13 @@ const servicio = {
   trabajadorGetIdent: async (req, res) => {  
     try {
     const { documento } = req.params
-    const trabajador = await Servicio.find({ documento })
+    const trabajador3 = await Aportante.find({ documento })
       .populate("documento", ["nombre"])
     console.log(documento)
     res.json({
-      trabajador
+      trabajador3
     })
-    console.log(trabajador)
+    console.log(trabajador3)
   } catch (error) {
     return res.status(500).json({ msg: "Hable con el WebMaster" })
   }
@@ -121,10 +105,10 @@ const servicio = {
     try {
     const { id } = req.params;
     const { _id, createAdt, estado, ...resto } = req.body;
-    const trabajador = await Servicio.findByIdAndUpdate(id, resto);
+    const trabajador3 = await Aportante.findByIdAndUpdate(id, resto);
 
     res.json({
-      trabajador
+      trabajador3
     })
   } catch (error) {
     return res.status(500).json({ msg: "Hable con el WebMaster" })
@@ -133,10 +117,10 @@ const servicio = {
   trabajadorPutActiv: async (req, res) => {
     try {
     const { id } = req.params;
-    const trabajador = await Servicio.findByIdAndUpdate(id, { estado:1});
+    const trabajador3 = await Aportante.findByIdAndUpdate(id, { estado:1});
 
     res.json({
-      trabajador
+      trabajador3
     })
   } catch (error) {
     return res.status(500).json({ msg: "Hable con el WebMaster" })
@@ -145,23 +129,23 @@ const servicio = {
   trabajadorPutDesactivar: async (req, res) => {
     try {
     const { id } = req.params;
-    const trabajador = await Servicio.findByIdAndUpdate(id, { estado:2 });
+    const trabajador3 = await Aportante.findByIdAndUpdate(id, { estado:2 });
 
     res.json({
-      trabajador
+      trabajador3
     })
   } catch (error) {
     return res.status(500).json({ msg: "Hable con el WebMaster" })
   }
   },
-  trabajadorPutVacaciones: async (req, res) => {
+  trabajadorPutFin: async (req, res) => {
     try {
 
     const { id } = req.params;
-    const trabajador = await Servicio.findByIdAndUpdate(id, { estado:3 });
+    const trabajador3 = await Aportante.findByIdAndUpdate(id, { estado:3 });
 
     res.json({
-      trabajador
+      trabajador3
     })
   } catch (error) {
     return res.status(500).json({ msg: "Hable con el WebMaster" })
@@ -170,9 +154,9 @@ const servicio = {
   trabajadorDelete: async (req, res) => {
     try {
     const { id } = req.params;
-    const trabajador = await Servicio.findByIdAndDelete(id);
+    const trabajador3 = await Aportante.findByIdAndDelete(id);
     res.json({
-      trabajador
+      trabajador3
     })
   } catch (error) {
     return res.status(500).json({ msg: "Hable con el WebMaster" })
@@ -180,4 +164,4 @@ const servicio = {
   }
 }
 
-export { servicio }
+export { aportante }
