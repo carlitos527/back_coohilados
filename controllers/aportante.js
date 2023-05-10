@@ -65,7 +65,7 @@ const aportante = {
   },
   trabajadorGet: async (req, res) => {
     try {
-    const trabajador3 = await Aportante.find().populate({path:'areaTrabajo'})
+    const trabajador3 = await Aportante.find()
     res.json({
       trabajador3
     }) 
