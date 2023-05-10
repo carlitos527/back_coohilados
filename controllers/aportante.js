@@ -70,7 +70,7 @@ const aportante = {
       trabajador3
     }) 
   } catch (error) {
-      return res.status(500).json({ msg: "Hable con el WebMaster" })
+      return res.status(500).json({ msg: "Hable con el WebMaster  carlitos" })
     }
 
   },
