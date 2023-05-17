@@ -54,7 +54,6 @@ const aportante = {
   trabajadorActivoGet:async (req,res)=>{
     try {
       const trabajador3 = await Aportante.find({estado:1})
-      .populate({path:'areaTrabajo'});
       if (!trabajador3){return res.status(400).json({msj: "No se encontraron trabajadores ASOCIADOS activos"})}
       res.json({ trabajador3})
     } catch (error) {
